@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.threerosaty.activities.AddPortfolioPhotosActivity">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/over_layer"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/txtNoOfPhotos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/divider_colour1"
+                android:padding="8dp"
+                android:text="@string/str_cover_image"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp" />
+
+            <FrameLayout
+                android:id="@+id/frame_cover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/divider_colour1"
+                android:padding="8dp"
+                android:text="@string/str_slider_images"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/mainView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:orientation="vertical"></LinearLayout>
+
+            <Button
+                android:id="@+id/btn_done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="14dp"
+                android:background="@color/sign_in_btn"
+                android:text="@string/str_done"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

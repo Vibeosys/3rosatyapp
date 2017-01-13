@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#15142E</color>
+    <color name="colorPrimaryDark">#0d0c1d</color>
+    <color name="colorAccent">#E80E8C</color>
+
+    <color name="primaryText">#ef2f3031</color>
+    <color name="primaryText2">#bf2f3031</color>
+    <color name="accentText">#FF4081</color>
+    <color name="secondaryText">#d863666b</color>
+    <color name="over_layer">#942b2927</color>
+    <color name="divider_colour">#a8b6b3b1</color>
+    <color name="sign_in_btn">#E80E8C</color>
+    <color name="request_now_btn">#e62222</color>
+    <color name="show_details_btn">#d1d1d1</color>
+    <color name="drawer_background">#e2ffffff</color>
+    <color name="hyperlinkColour">#dc3392ff</color>
+    <color name="closeBtnColour">#286090</color>
+    <color name="greenBtnColour">#60b960</color>
+    <color name="transWhiteLogin">#9cffffff</color>
+    <color name="transWhiteLogin1">#e2ffffff</color>
+    <color name="white_overlay_8x">#a5ffffff</color>
+    <color name="dialog_color">#ffffff</color>
+    <color name="divider_colour1">#a8e7e6e5</color>
+    <color name="profileTransparnt">#940b0b0b</color>
+    <color name="over_layer1">#b1332d2d</color>
+</resources>

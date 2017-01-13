@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transWhiteLogin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="12dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/greenBtnColour"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <com.threerosaty.views.LatoTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_corporate_fee"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <com.threerosaty.views.LatoBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="@string/str_fee"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_business_name"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edt_business_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_black"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_business_24_black"
+                    android:inputType="text"
+                    android:paddingEnd="6dp"
+                    android:paddingStart="6dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primaryText"
+                    android:textColorHint="@color/primaryText2"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_name_of_representative"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edt_represet_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_black"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_contact_24_black"
+                    android:inputType="text"
+                    android:paddingEnd="6dp"
+                    android:paddingStart="6dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primaryText"
+                    android:textColorHint="@color/primaryText2"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_user_email_hint"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_black"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_mail_24_black"
+                    android:inputType="textEmailAddress"
+                    android:paddingEnd="6dp"
+                    android:paddingStart="6dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primaryText"
+                    android:textColorHint="@color/primaryText2"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_user_password_hint"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edt_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_black"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_lock_24_black"
+                    android:inputType="textPassword"
+                    android:paddingEnd="6dp"
+                    android:paddingStart="6dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primaryText"
+                    android:textColorHint="@color/primaryText2"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_user_telephone_hint"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edt_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_black"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_telephone_24_black"
+                    android:inputType="number"
+                    android:paddingEnd="6dp"
+                    android:paddingStart="6dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primaryText"
+                    android:textColorHint="@color/primaryText2"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_user_phone_hint"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edt_mob_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_black"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_mob_24_black"
+                    android:inputType="number"
+                    android:paddingEnd="6dp"
+                    android:paddingStart="6dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primaryText"
+                    android:textColorHint="@color/primaryText2"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_user_web_hint"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edt_web_site"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_black"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_web_24_black"
+                    android:inputType="textWebEditText"
+                    android:paddingEnd="6dp"
+                    android:paddingStart="6dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primaryText"
+                    android:textColorHint="@color/primaryText2"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_country_of_residence"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edt_country_of_residence"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_black"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_globe_24_black"
+                    android:inputType="text"
+                    android:paddingEnd="6dp"
+                    android:paddingStart="6dp"
+                    android:singleLine="true"
+                    android:textColor="@color/primaryText"
+                    android:textColorHint="@color/primaryText2"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/chk_terms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp" />
+
+                <TextView
+                    android:id="@+id/txt_terms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingStart="5dp"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <!--  <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginBottom="16dp"
+                  android:layout_marginTop="16dp"
+                  android:gravity="center_vertical"
+                  android:orientation="horizontal">
+  -->
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/sign_in_btn"
+                android:text="@string/str_pay_subscription"
+                android:textColor="@android:color/white" />
+
+            <!--<Button
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/border_show_details"
+                android:text="@string/str_back" />
+        </LinearLayout>-->
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

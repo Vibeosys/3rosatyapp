@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.threerosaty">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:name=".ThreeRosatyAppApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.threerosaty.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.threerosaty.activities.CustomerLoginActivity"
+            android:parentActivityName="com.threerosaty.MainActivity" />
+        <activity
+            android:name="com.threerosaty.activities.SubscriberLoginActivity"
+            android:parentActivityName="com.threerosaty.MainActivity" />
+        <activity
+            android:name="com.threerosaty.activities.ArtistDetailsActivity"
+            android:parentActivityName="com.threerosaty.MainActivity" />
+        <activity
+            android:name="com.threerosaty.activities.UserRegisterActivity"
+            android:parentActivityName="com.threerosaty.activities.CustomerLoginActivity" />
+        <activity
+            android:name="com.threerosaty.activities.SubscriberRegisterActivity"
+            android:parentActivityName="com.threerosaty.activities.SubscriberLoginActivity" />
+        <activity
+            android:name="com.threerosaty.activities.PortfolioListActivity"
+            android:parentActivityName="com.threerosaty.MainActivity" />
+        <activity
+            android:name="com.threerosaty.activities.AddPortfolioActivity"
+            android:parentActivityName="com.threerosaty.activities.PortfolioListActivity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.threerosaty.activities.SubscriptionActivity" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.threerosaty.activities.AddPortfolioDataActivity"
+            android:parentActivityName="com.threerosaty.activities.PortfolioListActivity" />
+        <activity
+            android:name="com.threerosaty.activities.FilterActivity"
+            android:parentActivityName="com.threerosaty.MainActivity" />
+        <activity
+            android:name="com.threerosaty.activities.AddPortfolioPhotosActivity"
+            android:parentActivityName="com.threerosaty.activities.PortfolioListActivity" />
+        <activity
+            android:name="com.threerosaty.activities.UserProfileActivity"
+            android:parentActivityName="com.threerosaty.MainActivity" />
+        <activity
+            android:name="com.threerosaty.activities.SubscriberProfileActivity"
+            android:parentActivityName="com.threerosaty.MainActivity" />
+        <activity
+            android:name="com.threerosaty.activities.ForgotPassSubActivity"
+            android:parentActivityName="com.threerosaty.activities.SubscriberLoginActivity" />
+        <activity
+            android:name="com.threerosaty.activities.ForgotPassUserActivity"
+            android:parentActivityName="com.threerosaty.activities.CustomerLoginActivity"></activity>
+    </application>
+
+</manifest>

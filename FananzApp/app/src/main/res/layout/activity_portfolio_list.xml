@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.threerosaty.activities.PortfolioListActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+
+        <LinearLayout
+            android:id="@+id/addPortfolioLay"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginEnd="0.2dp"
+            android:layout_marginStart="0.2dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:onClick="addPortFolio"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:padding="10dp"
+                android:src="@drawable/ic_add_circle_black_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@string/str_add_new_porfolie"
+                android:textSize="21sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listPortfolio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.threerosaty.activities.AddPortfolioDataActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12dp"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_category"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/spnCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_sub_category"
+                    android:textColor="@color/primaryText"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/spnSubCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:paddingStart="5dp"
+                        android:text="@string/str_portfolio_fb_link"
+                        android:textColor="@color/primaryText"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/edt_fb_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/border_black"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_fb_link_24_black"
+                        android:inputType="textWebEditText"
+                        android:paddingEnd="6dp"
+                        android:paddingStart="6dp"
+                        android:singleLine="true"
+                        android:textColor="@color/primaryText"
+                        android:textColorHint="@color/primaryText2"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:paddingStart="5dp"
+                        android:text="@string/str_portfolio_you_link"
+                        android:textColor="@color/primaryText"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/edt_you_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/border_black"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_you_24_black"
+                        android:inputType="textWebEditText"
+                        android:paddingEnd="6dp"
+                        android:paddingStart="6dp"
+                        android:singleLine="true"
+                        android:textColor="@color/primaryText"
+                        android:textColorHint="@color/primaryText2"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:text="@string/str_price_in_aed"
+                    android:textColor="@color/primaryText2"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_weight="1"
+                            android:paddingStart="5dp"
+                            android:text="@string/str_portfolio_min_price"
+                            android:textColor="@color/primaryText"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/edt_min_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/border_black"
+                            android:drawablePadding="10dp"
+                            android:drawableStart="@drawable/ic_money_24_black"
+                            android:inputType="number"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:singleLine="true"
+                            android:textColor="@color/primaryText"
+                            android:textColorHint="@color/primaryText2"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:layout_weight="1"
+                            android:paddingStart="5dp"
+                            android:text="@string/str_portfolio_max_price"
+                            android:textColor="@color/primaryText"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/edt_max_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/border_black"
+                            android:drawablePadding="10dp"
+                            android:drawableStart="@drawable/ic_money_24_black"
+                            android:inputType="number"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:singleLine="true"
+                            android:textColor="@color/primaryText"
+                            android:textColorHint="@color/primaryText2"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:paddingStart="5dp"
+                        android:text="@string/str_portfolio_details"
+                        android:textColor="@color/primaryText"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/edt_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_black"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_details_24_black"
+                        android:inputType="text|textMultiLine"
+                        android:minLines="3"
+                        android:paddingBottom="6dp"
+                        android:paddingEnd="6dp"
+                        android:paddingStart="6dp"
+                        android:paddingTop="6dp"
+                        android:singleLine="false"
+                        android:textColor="@color/primaryText"
+                        android:textColorHint="@color/primaryText2"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/border_show_details"
+                        android:text="@string/str_cancel" />
+
+                    <Button
+                        android:id="@+id/btn_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@color/sign_in_btn"
+                        android:text="@string/str_next"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>
