@@ -136,7 +136,7 @@ public class MultipartUtility {
         // List<String> response = new ArrayList<String>();
         String the_string_response;
         String message = new JSONObject().toString();
-        String finalResponce;
+        //String finalResponce;
         writer.append(LINE_FEED).flush();
         writer.append("--" + boundary + "--").append(LINE_FEED);
         writer.close();
@@ -149,16 +149,16 @@ public class MultipartUtility {
             InputStream is = httpConn.getInputStream();
             the_string_response = convertStreamToString(is);
             System.out.println("##responce:" + the_string_response);
-            int start = the_string_response.lastIndexOf("{");
-            int end = the_string_response.lastIndexOf("}");
-            finalResponce = the_string_response.substring(start, end + 1);
-            System.out.println("Data get" + finalResponce);
+           // int start = the_string_response.lastIndexOf("{");
+            //int end = the_string_response.lastIndexOf("}");
+            //finalResponce = the_string_response.substring(start, end + 1);
+            //System.out.println("Data get" + finalResponce);
             httpConn.disconnect();
         } else {
             throw new IOException("Server returned non-OK status: " + status);
         }
 
-        return finalResponce;
+        return the_string_response;
     }
 
 

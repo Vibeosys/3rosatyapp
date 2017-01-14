@@ -58,9 +58,9 @@ public class AddPortfolioPhotosActivity extends BaseActivity implements
                     getResources().getString(R.string.str_err_net_msg));
         }
         if (mSessionManager.getSType().equals(SubscriberType.TYPE_CORPORATE)) {
-            length = 6;
+            length = 8;
         } else {
-            length = 3;
+            length = 4;
         }
         txtTotalImages.setText("You can upload up to " + length + " images");
     }

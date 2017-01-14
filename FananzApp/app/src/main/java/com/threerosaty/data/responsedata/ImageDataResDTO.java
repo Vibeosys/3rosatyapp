@@ -2,10 +2,10 @@ package com.threerosaty.data.responsedata;
 
 import android.util.Log;
 
-import com.threerosaty.data.BaseDTO;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
+import com.threerosaty.data.BaseDTO;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,16 +14,13 @@ import java.util.Comparator;
 /**
  * Created by akshay on 07-01-2017.
  */
-public class ImageDataReqDTO extends BaseDTO implements Serializable {
-    private static final String TAG = ImageDataReqDTO.class.getSimpleName();
+public class ImageDataResDTO extends BaseDTO implements Serializable {
+    private static final String TAG = ImageDataResDTO.class.getSimpleName();
     private long photoId;
     private String photoUrl;
-    private int isCoverImage;
+    private boolean isCoverImage;
 
-    public ImageDataReqDTO() {
-    }
-
-    public ImageDataReqDTO(long photoId, String photoUrl, int isCoverImg) {
+    public ImageDataResDTO(long photoId, String photoUrl, boolean isCoverImg) {
         this.photoId = photoId;
         this.photoUrl = photoUrl;
         this.isCoverImage = isCoverImg;
@@ -45,32 +42,32 @@ public class ImageDataReqDTO extends BaseDTO implements Serializable {
         this.photoUrl = photoUrl;
     }
 
-    public int isCoverImg() {
+    public boolean isCoverImg() {
         return isCoverImage;
     }
 
-    public void setCoverImg(int coverImg) {
+    public void setCoverImg(boolean coverImg) {
         isCoverImage = coverImg;
     }
 
-    public static ImageDataReqDTO deserializeJson(String serializedString) {
+    public static ImageDataResDTO deserializeJson(String serializedString) {
         Gson gson = new Gson();
-        ImageDataReqDTO responseDTO = null;
+        ImageDataResDTO responseDTO = null;
         try {
-            responseDTO = gson.fromJson(serializedString, ImageDataReqDTO.class);
+            responseDTO = gson.fromJson(serializedString, ImageDataResDTO.class);
         } catch (JsonParseException e) {
             Log.d(TAG, "Exception in deserialization ImageDataReqDTO" + e.toString());
         }
         return responseDTO;
     }
 
-    public static ArrayList<ImageDataReqDTO> deserializeToArray(String serializedString) {
+    public static ArrayList<ImageDataResDTO> deserializeToArray(String serializedString) {
         Gson gson = new Gson();
-        ArrayList<ImageDataReqDTO> imageDataReqDTOs = null;
+        ArrayList<ImageDataResDTO> imageDataReqDTOs = null;
         try {
-            ImageDataReqDTO[] deserializeObject = gson.fromJson(serializedString, ImageDataReqDTO[].class);
+            ImageDataResDTO[] deserializeObject = gson.fromJson(serializedString, ImageDataResDTO[].class);
             imageDataReqDTOs = new ArrayList<>();
-            for (ImageDataReqDTO imageDataReqDTO : deserializeObject) {
+            for (ImageDataResDTO imageDataReqDTO : deserializeObject) {
                 imageDataReqDTOs.add(imageDataReqDTO);
             }
         } catch (JsonSyntaxException e) {
@@ -79,21 +76,5 @@ public class ImageDataReqDTO extends BaseDTO implements Serializable {
 
 
         return imageDataReqDTOs;
-    }
-
-    public static class IsCoverComparator implements Comparator<ImageDataReqDTO> {
-
-        @Override
-        public int compare(ImageDataReqDTO p1, ImageDataReqDTO p2) {
-            double isCover1 = p1.isCoverImg();
-            double isCover2 = p2.isCoverImg();
-
-            if (isCover1 == isCover2)
-                return 0;
-            else if (isCover1 > isCover2)
-                return 1;
-            else
-                return -1;
-        }
     }
 }

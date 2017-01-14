@@ -24,12 +24,15 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
+import com.google.gson.JsonObject;
 import com.threerosaty.R;
 import com.threerosaty.data.requestdata.BaseRequestDTO;
 import com.threerosaty.data.requestdata.DeletePhotoReqDTO;
 import com.threerosaty.data.requestdata.UpdatePhotosReqDTO;
 import com.threerosaty.data.requestdata.UploadPhotosReqDTO;
+import com.threerosaty.data.responsedata.BaseResponseDTO;
 import com.threerosaty.data.responsedata.ImageDataReqDTO;
+import com.threerosaty.data.responsedata.ImageDataResDTO;
 import com.threerosaty.utils.CustomVolleyRequestQueue;
 import com.threerosaty.utils.DialogUtils;
 import com.threerosaty.utils.MultipartUtility;
@@ -38,7 +41,12 @@ import com.threerosaty.utils.ServerRequestToken;
 import com.threerosaty.utils.ServerSyncManager;
 import com.google.gson.Gson;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by akshay on 06-01-2017.
@@ -285,6 +293,24 @@ public class UploadImageFragment extends BaseFragment implements View.OnClickLis
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             progressDialog.dismiss();
+            try {
+                BaseResponseDTO base = BaseResponseDTO.deserializeJson(result);
+                ArrayList<ImageDataResDTO> images = ImageDataResDTO.deserializeToArray(base.getData());
+                ImageDataResDTO data = images.get(0);
+                imgData = new ImageDataReqDTO();
+                imgData.setPhotoId(data.getPhotoId());
+                imgData.setPhotoUrl(data.getPhotoUrl());
+                if (data.isCoverImg()) {
+                    imgData.setCoverImg(1);
+                } else {
+                    imgData.setCoverImg(0);
+                }
+                img.setImageUrl(imgData.getPhotoUrl(), mImageLoader);
+                layEdit.setVisibility(View.VISIBLE);
+                layAdd.setVisibility(View.GONE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             Log.d(TAG, "##" + result);
         }
 
