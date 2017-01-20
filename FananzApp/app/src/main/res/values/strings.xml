@@ -142,12 +142,12 @@
     <string name="str_paypal_client_id">AfzYXpuZS4hsZIRRiE1uWoXXKuHHahsFdiD4OlqdEY6RPyxRIRyow3u1CxI8HMlH0roGqq0V4ri9bNQy</string>
     <string name="str_subscribe_message">Subscribe for corporate</string>
     <string name="str_subscribe_later">Later</string>
-    <string name="str_corporate_annual_fee">Do you want to subscribe annual membership worth AED 2000</string>
+    <string name="str_corporate_annual_fee">Do you want to subscribe annual membership worth USD 320</string>
     <string name="str_subscription_error">Subscription error</string>
     <string name="str_subscription_msg">Server is unable to generate subscription try again later</string>
     <string name="str_success_pay">Your subscription is successful, Login with email and password</string>
     <string name="str_photo_delete_success">Photo deleted successfully</string>
-    <string name="str_fre_annual_fee">Do you want to subscribe annual membership worth AED 1000</string>
+    <string name="str_fre_annual_fee">Do you want to subscribe annual membership worth USD 160</string>
     <string name="str_pass_confirm_incorrect">Password are not match</string>
     <string name="str_active">ACTIVATE</string>
     <string name="str_inactive_error_response">Error</string>
@@ -185,4 +185,8 @@
     <string name="str_cannot_delete_cover">You can not delete the cover image</string>
     <string name="str_done">Done</string>
     <string name="str_add">ADD IMAGE</string>
+    <string name="str_note">NOTE</string>
+    <string name="str_note_text">Please pay subscription fees to continue</string>
+    <string name="str_pay_cash">Paying by Cash?</string>
+    <string name="str_pay_cash_call">Call +971-56-5577422</string>
 </resources>

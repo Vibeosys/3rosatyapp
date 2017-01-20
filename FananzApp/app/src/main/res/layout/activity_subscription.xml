@@ -25,6 +25,28 @@
             android:textColor="@color/primaryText"
             android:textSize="16sp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingStart="4dp"
+            android:text="@string/str_pay_cash"
+            android:textColor="@color/primaryText"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingStart="4dp"
+            android:text="@string/str_pay_cash_call"
+            android:textColor="@color/primaryText"
+            android:textSize="20sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
