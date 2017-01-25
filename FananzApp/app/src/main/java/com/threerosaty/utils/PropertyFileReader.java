@@ -132,4 +132,12 @@ public class PropertyFileReader {
     public String updateProfile() {
         return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.UPDATE_SUB_PROFILE);
     }
+
+    public String contactUs() {
+        return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.CONTACT_US_URL);
+    }
+
+    public String payLater() {
+        return getEndPointUri() + mProperties.getProperty(PropertyTypeConstants.PAY_LATER_SUB);
+    }
 }

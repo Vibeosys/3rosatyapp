@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.threerosaty.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -27,31 +27,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.threerosaty.activities.CustomerLoginActivity"
-            android:parentActivityName="com.threerosaty.MainActivity" />
+            android:name=".activities.CustomerLoginActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.threerosaty.activities.SubscriberLoginActivity"
-            android:parentActivityName="com.threerosaty.MainActivity" />
+            android:name=".activities.SubscriberLoginActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.threerosaty.activities.ArtistDetailsActivity"
-            android:parentActivityName="com.threerosaty.MainActivity" />
+            android:name=".activities.ArtistDetailsActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.threerosaty.activities.UserRegisterActivity"
-            android:parentActivityName="com.threerosaty.activities.CustomerLoginActivity" />
+            android:name=".activities.UserRegisterActivity"
+            android:parentActivityName=".activities.CustomerLoginActivity" />
         <activity
-            android:name="com.threerosaty.activities.SubscriberRegisterActivity"
-            android:parentActivityName="com.threerosaty.activities.SubscriberLoginActivity" />
+            android:name=".activities.SubscriberRegisterActivity"
+            android:parentActivityName=".activities.SubscriberLoginActivity" />
         <activity
-            android:name="com.threerosaty.activities.PortfolioListActivity"
-            android:parentActivityName="com.threerosaty.MainActivity" />
+            android:name=".activities.PortfolioListActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.threerosaty.activities.AddPortfolioActivity"
-            android:parentActivityName="com.threerosaty.activities.PortfolioListActivity" />
+            android:name=".activities.AddPortfolioActivity"
+            android:parentActivityName=".activities.PortfolioListActivity" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.threerosaty.activities.SubscriptionActivity" />
+        <activity android:name=".activities.SubscriptionActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -63,26 +63,27 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name="com.threerosaty.activities.AddPortfolioDataActivity"
-            android:parentActivityName="com.threerosaty.activities.PortfolioListActivity" />
+            android:name=".activities.AddPortfolioDataActivity"
+            android:parentActivityName=".activities.PortfolioListActivity" />
         <activity
-            android:name="com.threerosaty.activities.FilterActivity"
-            android:parentActivityName="com.threerosaty.MainActivity" />
+            android:name=".activities.FilterActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.threerosaty.activities.AddPortfolioPhotosActivity"
-            android:parentActivityName="com.threerosaty.activities.PortfolioListActivity" />
+            android:name=".activities.AddPortfolioPhotosActivity"
+            android:parentActivityName=".activities.PortfolioListActivity" />
         <activity
-            android:name="com.threerosaty.activities.UserProfileActivity"
-            android:parentActivityName="com.threerosaty.MainActivity" />
+            android:name=".activities.UserProfileActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.threerosaty.activities.SubscriberProfileActivity"
-            android:parentActivityName="com.threerosaty.MainActivity" />
+            android:name=".activities.SubscriberProfileActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.threerosaty.activities.ForgotPassSubActivity"
-            android:parentActivityName="com.threerosaty.activities.SubscriberLoginActivity" />
+            android:name=".activities.ForgotPassSubActivity"
+            android:parentActivityName=".activities.SubscriberLoginActivity" />
         <activity
-            android:name="com.threerosaty.activities.ForgotPassUserActivity"
-            android:parentActivityName="com.threerosaty.activities.CustomerLoginActivity"></activity>
+            android:name=".activities.ForgotPassUserActivity"
+            android:parentActivityName=".activities.CustomerLoginActivity" />
+        <activity android:name=".activities.ContactUsActivity"></activity>
     </application>
 
 </manifest>

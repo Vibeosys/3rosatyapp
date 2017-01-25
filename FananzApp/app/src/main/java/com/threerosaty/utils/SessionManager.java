@@ -76,6 +76,8 @@ public class SessionManager {
         editor.putString(PropertyTypeConstants.FORGOT_SUB_PASS, mPropertyFileReader.forgotPassSub());
         editor.putString(PropertyTypeConstants.FORGOT_USER_PASS, mPropertyFileReader.forgotPassUser());
         editor.putString(PropertyTypeConstants.UPDATE_SUB_PROFILE, mPropertyFileReader.updateProfile());
+        editor.putString(PropertyTypeConstants.CONTACT_US_URL, mPropertyFileReader.contactUs());
+        editor.putString(PropertyTypeConstants.PAY_LATER_SUB, mPropertyFileReader.payLater());
         editor.apply();
         return true;
     }
@@ -331,5 +333,12 @@ public class SessionManager {
 
     public String updateSubProfile() {
         return mProjectSharedPref.getString(PropertyTypeConstants.UPDATE_SUB_PROFILE, null);
+    }
+
+    public String contactUsUrl() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.CONTACT_US_URL, null);
+    }
+    public String payLater() {
+        return mProjectSharedPref.getString(PropertyTypeConstants.PAY_LATER_SUB, null);
     }
 }

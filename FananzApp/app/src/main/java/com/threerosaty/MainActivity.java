@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.threerosaty.activities.BaseActivity;
+import com.threerosaty.activities.ContactUsActivity;
 import com.threerosaty.activities.CustomerLoginActivity;
 import com.threerosaty.activities.PortfolioListActivity;
 import com.threerosaty.activities.SubscriberLoginActivity;
@@ -145,6 +146,9 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_business_login) {
             Intent iLogin = new Intent(getApplicationContext(), SubscriberLoginActivity.class);
             startActivity(iLogin);
+        } else if (id == R.id.nav_contact_us) {
+            Intent intent = new Intent(getApplicationContext(), ContactUsActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_logout) {
             callToLogOut();
         } else if (id == R.id.nav_portfolio) {

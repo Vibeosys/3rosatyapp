@@ -25,4 +25,6 @@ public class ServerRequestToken {
     public static final int REQUEST_SUB_FORGOT_PASS = 116;
     public static final int REQUEST_USER_FORGOT_PASS = 117;
     public static final int REQUEST_UPDATE_PROFILE = 118;
+    public static final int REQUEST_CONTACT_US = 119;
+    public static final int REQUEST_PAY_LATER = 120;
 }

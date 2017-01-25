@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.threerosaty.R;
 import com.threerosaty.data.requestdata.BaseRequestDTO;
+import com.threerosaty.data.requestdata.PayLaterSubDTO;
 import com.threerosaty.data.requestdata.UserRequestDTO;
 import com.threerosaty.data.requestdata.VerifyPayReqDTO;
 import com.threerosaty.data.responsedata.InitializePaymentResDTO;
@@ -66,6 +67,19 @@ public class SubscriptionActivity extends BaseActivity implements
                 baseRequestDTO.setUser(serializedJsonString);
                 mServerSyncManager.uploadSubToServer(ServerRequestToken.REQUEST_INITIALIZE_PAYMENT,
                         mSessionManager.initPaymentUrl(), baseRequestDTO);
+            }
+        });
+        btnSubscribeLater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                progressDialog.show();
+                PayLaterSubDTO payLaterSubDTO = new PayLaterSubDTO(mSessionManager.getSubId());
+                Gson gson = new Gson();
+                String serializedJsonString = gson.toJson(payLaterSubDTO);
+                BaseRequestDTO baseRequestDTO = new BaseRequestDTO();
+                baseRequestDTO.setData(serializedJsonString);
+                mServerSyncManager.uploadSubToServer(ServerRequestToken.REQUEST_PAY_LATER,
+                        mSessionManager.payLater(), baseRequestDTO);
             }
         });
 
@@ -163,6 +177,9 @@ public class SubscriptionActivity extends BaseActivity implements
             case ServerRequestToken.REQUEST_INITIALIZE_PAYMENT:
                 initializeDTO = InitializePaymentResDTO.deserializeJson(data);
                 subscribeNow(initializeDTO, userRequestDTO);
+                break;
+            case ServerRequestToken.REQUEST_PAY_LATER:
+                Toast.makeText(getApplicationContext(), getString(R.string.str_pay_later), Toast.LENGTH_SHORT).show();
                 break;
         }
     }

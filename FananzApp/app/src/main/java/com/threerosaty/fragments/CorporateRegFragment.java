@@ -27,6 +27,7 @@ import com.threerosaty.R;
 import com.threerosaty.activities.SubscriberLoginActivity;
 import com.threerosaty.activities.SubscriberRegisterActivity;
 import com.threerosaty.data.requestdata.BaseRequestDTO;
+import com.threerosaty.data.requestdata.PayLaterSubDTO;
 import com.threerosaty.data.requestdata.RegisterSubscriberReq;
 import com.threerosaty.data.requestdata.UserRequestDTO;
 import com.threerosaty.data.responsedata.InitializePaymentResDTO;
@@ -205,6 +206,11 @@ public class CorporateRegFragment extends BaseFragment implements View.OnClickLi
             case ServerRequestToken.REQUEST_INITIALIZE_PAYMENT:
                 customSubAlterDialog(getString(R.string.str_server_err_title), getString(R.string.str_server_err_desc));
                 break;
+            case ServerRequestToken.REQUEST_PAY_LATER:
+                Intent iLogin = new Intent(getContext(), SubscriberLoginActivity.class);
+                startActivity(iLogin);
+                getActivity().finish();
+                break;
         }
     }
 
@@ -217,6 +223,11 @@ public class CorporateRegFragment extends BaseFragment implements View.OnClickLi
                 break;
             case ServerRequestToken.REQUEST_INITIALIZE_PAYMENT:
                 customSubAlterDialog(getString(R.string.str_subscription_error), getString(R.string.str_subscription_msg));
+                break;
+            case ServerRequestToken.REQUEST_PAY_LATER:
+                Intent iLogin = new Intent(getContext(), SubscriberLoginActivity.class);
+                startActivity(iLogin);
+                getActivity().finish();
                 break;
         }
     }
@@ -235,6 +246,11 @@ public class CorporateRegFragment extends BaseFragment implements View.OnClickLi
                 InitializePaymentResDTO paymentResDTO = InitializePaymentResDTO.deserializeJson(data);
                 activity.subscribeNow(paymentResDTO, userRequestDTO);
                 break;
+            case ServerRequestToken.REQUEST_PAY_LATER:
+                Intent iLogin = new Intent(getContext(), SubscriberLoginActivity.class);
+                startActivity(iLogin);
+                getActivity().finish();
+                break;
         }
 
     }
@@ -251,9 +267,14 @@ public class CorporateRegFragment extends BaseFragment implements View.OnClickLi
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                Intent iLogin = new Intent(getContext(), SubscriberLoginActivity.class);
-                startActivity(iLogin);
-                getActivity().finish();
+                progressDialog.show();
+                PayLaterSubDTO payLaterSubDTO = new PayLaterSubDTO(subId);
+                Gson gson = new Gson();
+                String serializedJsonString = gson.toJson(payLaterSubDTO);
+                BaseRequestDTO baseRequestDTO = new BaseRequestDTO();
+                baseRequestDTO.setData(serializedJsonString);
+                mServerSyncManager.uploadSubToServer(ServerRequestToken.REQUEST_PAY_LATER,
+                        mSessionManager.payLater(), baseRequestDTO);
             }
         });
         btnSubscribe.setOnClickListener(new View.OnClickListener() {

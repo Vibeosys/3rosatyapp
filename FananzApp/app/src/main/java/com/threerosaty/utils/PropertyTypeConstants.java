@@ -28,6 +28,8 @@ public final class PropertyTypeConstants {
     public static final String FORGOT_SUB_PASS = "api.endpoint.forgotpasssub";
     public static final String FORGOT_USER_PASS = "api.endpoint.forgotpassuser";
     public static final String UPDATE_SUB_PROFILE = "api.endpoint.updateprofile";
+    public static final String CONTACT_US_URL = "api.endpoint.contactus";
+    public static final String PAY_LATER_SUB = "api.endpoint.paylater";
 
     public static final String SUB_ID = "sub.id";
     public static final String SUB_EMAIL = "sub.email";
