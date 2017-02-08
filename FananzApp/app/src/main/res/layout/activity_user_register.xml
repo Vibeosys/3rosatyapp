@@ -191,38 +191,40 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:orientation="vertical">
+            <!--
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:orientation="vertical">
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:layout_marginTop="8dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/str_user_confirm_password_hint"
-                    android:textColor="@color/primaryText"
-                    android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:layout_marginTop="8dp"
+                                android:paddingStart="5dp"
+                                android:text="@string/str_user_confirm_password_hint"
+                                android:textColor="@color/primaryText"
+                                android:textSize="14sp" />
 
-                <EditText
-                    android:id="@+id/edt_confirm_pass"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/border_black"
-                    android:drawablePadding="10dp"
-                    android:drawableStart="@drawable/ic_lock_24_black"
-                    android:inputType="textPassword"
-                    android:paddingEnd="6dp"
-                    android:paddingStart="6dp"
-                    android:singleLine="true"
-                    android:textColor="@color/primaryText"
-                    android:textColorHint="@color/primaryText2"
-                    android:textSize="16sp" />
-            </LinearLayout>
+                            <EditText
+                                android:id="@+id/edt_confirm_pass"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:background="@drawable/border_black"
+                                android:drawablePadding="10dp"
+                                android:drawableStart="@drawable/ic_lock_24_black"
+                                android:inputType="textPassword"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:singleLine="true"
+                                android:textColor="@color/primaryText"
+                                android:textColorHint="@color/primaryText2"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+            -->
 
 
             <LinearLayout

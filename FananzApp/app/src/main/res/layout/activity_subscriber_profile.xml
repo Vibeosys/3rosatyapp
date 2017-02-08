@@ -180,7 +180,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:text="@string/str_user_web_hint"
+                    android:text="@string/str_country_of_residence"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <View

@@ -33,7 +33,7 @@ public class UserRegisterActivity extends BaseActivity implements View.OnClickLi
     private static final String TAG = UserRegisterActivity.class.getSimpleName();
     private CheckBox chkTerms;
     private TextView mTxtTerms;
-    private EditText edtFirstName, edtLastName, edtEmail, edtMob, edtPass, edtConfirmPass;
+    private EditText edtFirstName, edtLastName, edtEmail, edtMob, edtPass;
     private Button btnSubmit;
 
     @Override
@@ -49,7 +49,7 @@ public class UserRegisterActivity extends BaseActivity implements View.OnClickLi
         edtEmail = (EditText) findViewById(R.id.edt_email);
         edtMob = (EditText) findViewById(R.id.edt_mob_no);
         edtPass = (EditText) findViewById(R.id.edt_pass);
-        edtConfirmPass = (EditText) findViewById(R.id.edt_confirm_pass);
+        //edtConfirmPass = (EditText) findViewById(R.id.edt_confirm_pass);
         btnSubmit = (Button) findViewById(R.id.btn_submit);
         mServerSyncManager.setOnStringResultReceived(this);
         mServerSyncManager.setOnStringErrorReceived(this);
@@ -106,7 +106,7 @@ public class UserRegisterActivity extends BaseActivity implements View.OnClickLi
         String strPassword = edtPass.getText().toString();
         String strEmail = edtEmail.getText().toString();
         String strMob = edtMob.getText().toString();
-        String strConfirmPass = edtConfirmPass.getText().toString();
+        //String strConfirmPass = edtConfirmPass.getText().toString();
         View focusView = null;
         boolean check = false;
         if (strFName.isEmpty()) {
@@ -125,10 +125,10 @@ public class UserRegisterActivity extends BaseActivity implements View.OnClickLi
             focusView = edtMob;
             check = true;
             edtMob.setError(getString(R.string.str_mob_empty));
-        } else if (strConfirmPass.equals(strPassword)) {
-            focusView = edtConfirmPass;
+        } else if (!chkTerms.isChecked()) {
+            focusView = chkTerms;
             check = true;
-            edtConfirmPass.setError(getString(R.string.str_pass_confirm_incorrect));
+            customAlterDialog(getResources().getString(R.string.str_user_registration), getResources().getString(R.string.str_terms_condition));
         }
 
         if (check) {

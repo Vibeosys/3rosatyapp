@@ -130,12 +130,39 @@ public class FreelanceRegFragment extends BaseFragment implements View.OnClickLi
         int id = view.getId();
         switch (id) {
             case R.id.btn_submit:
-                registerUser();
+                boolean result = registerUser();
+                if (result) {
+                    if (!checkBox.isChecked()) {
+                        customAlterDialog(getResources().getString(R.string.str_sub_registration), getResources().getString(R.string.str_terms_condition));
+                    } else if (checkBox.isChecked()) {
+                        callToPrepareJson();
+                    }
+                }
                 break;
         }
     }
 
-    private void registerUser() {
+    private void callToPrepareJson() {
+        String strName = edtName.getText().toString();
+        String strNickName = edtNickName.getText().toString();
+        password = edtPass.getText().toString();
+        email = edtEmail.getText().toString();
+        String strPhone = edtPh.getText().toString();
+        String strMob = edtMob.getText().toString();
+        String strWeb = edtWeb.getText().toString();
+        String strCountry = edtCountry.getText().toString();
+        progressDialog.show();
+        RegisterSubscriberReq subscriberReq = new RegisterSubscriberReq(strName, email, password, ""
+                , SubscriberType.TYPE_FREELANCER, strPhone, strMob, strWeb, strCountry, strNickName);
+        Gson gson = new Gson();
+        String serializedJsonString = gson.toJson(subscriberReq);
+        BaseRequestDTO baseRequestDTO = new BaseRequestDTO();
+        baseRequestDTO.setData(serializedJsonString);
+        mServerSyncManager.uploadDataToServer(ServerRequestToken.REQUEST_ADD_SUBSCRIBER,
+                mSessionManager.addSubsriberUrl(), baseRequestDTO);
+    }
+
+    private boolean registerUser() {
 
         String strName = edtName.getText().toString();
         String strNickName = edtNickName.getText().toString();
@@ -149,39 +176,54 @@ public class FreelanceRegFragment extends BaseFragment implements View.OnClickLi
         View focusView = null;
         boolean check = false;
         if (strName.isEmpty()) {
+            edtName.requestFocus();
             edtName.setError(getString(R.string.str_name_empty_error));
-            focusView = edtName;
             check = true;
+            return false;
         } else if (email.isEmpty()) {
+            edtEmail.requestFocus();
             focusView = edtEmail;
+
             check = true;
             edtEmail.setError(getString(R.string.str_email_empty));
+            return false;
         } else if (!Validator.isValidMail(email)) {
+            edtEmail.requestFocus();
             focusView = edtEmail;
             check = true;
+
             edtEmail.setError(getString(R.string.str_email_wrong));
+            return false;
         } else if (password.isEmpty()) {
             focusView = edtPass;
             check = true;
+            edtPass.requestFocus();
             edtPass.setError(getString(R.string.str_pass_empty));
+            return false;
         } else if (strMob.isEmpty()) {
             focusView = edtMob;
+            edtMob.requestFocus();
             check = true;
             edtMob.setError(getString(R.string.str_mob_empty));
+            return false;
         } else if (!Validator.isValidPhone(strMob)) {
             focusView = edtMob;
+            edtMob.requestFocus();
             check = true;
             edtMob.setError(getString(R.string.str_mob_wrong));
+            return false;
         } else if (!strPhone.isEmpty()) {
             if (!Validator.isValidTel(strPhone)) {
                 focusView = edtPh;
                 check = true;
+                edtPh.requestFocus();
                 edtPh.setError(getString(R.string.str_ph_invalid));
+                return false;
             }
-        } else if (!checkTerms) {
+        }/* else if (!checkBox.isChecked()) {
             focusView = checkBox;
             check = true;
-            checkBox.setError(getString(R.string.str_check_box_not));
+            customAlterDialog(getResources().getString(R.string.str_sub_registration), getResources().getString(R.string.str_terms_condition));
         }
         if (check) {
             focusView.requestFocus();
@@ -195,8 +237,9 @@ public class FreelanceRegFragment extends BaseFragment implements View.OnClickLi
             baseRequestDTO.setData(serializedJsonString);
             mServerSyncManager.uploadDataToServer(ServerRequestToken.REQUEST_ADD_SUBSCRIBER,
                     mSessionManager.addSubsriberUrl(), baseRequestDTO);
-        }
+        }*/
 
+        return true;
     }
 
     @Override

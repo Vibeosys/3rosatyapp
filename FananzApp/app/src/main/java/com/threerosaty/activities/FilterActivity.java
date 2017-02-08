@@ -1,5 +1,6 @@
 package com.threerosaty.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -87,7 +88,7 @@ public class FilterActivity extends AppCompatActivity implements View.OnClickLis
         Intent intent = new Intent();
         intent.putExtra(SELECTED_PRICE, 0);
         intent.putExtra(SELECTED_SORT, 0);
-        setResult(MainActivity.FILTER_RESULT, intent);
+        setResult(Activity.RESULT_CANCELED, intent);
         finish();//finishing activity
         //super.onBackPressed();
 
