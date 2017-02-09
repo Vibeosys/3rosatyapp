@@ -1,6 +1,7 @@
 package com.threerosaty;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +14,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.threerosaty.activities.BaseActivity;
 import com.threerosaty.activities.ContactUsActivity;
 import com.threerosaty.activities.CustomerLoginActivity;
@@ -36,6 +40,11 @@ public class MainActivity extends BaseActivity
     private int userType = UserType.USER_OTHER;
     private OnFilterClickListener onFilterClickListener;
     private TextView mNavigationUserEmailId, mNavigationUserName;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +99,9 @@ public class MainActivity extends BaseActivity
                     replace(R.id.fragment_frame_lay, userListFragment, PORFOLIO_LIST_FRAGMENT).commit();
         }
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
@@ -146,6 +158,7 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_business_login) {
             Intent iLogin = new Intent(getApplicationContext(), SubscriberLoginActivity.class);
             startActivity(iLogin);
+            finish();
         } else if (id == R.id.nav_contact_us) {
             Intent intent = new Intent(getApplicationContext(), ContactUsActivity.class);
             startActivity(intent);
@@ -172,7 +185,48 @@ public class MainActivity extends BaseActivity
 
     private void callToLogOut() {
         UserAuth.CleanAuthenticationInfo();
+        finish();
         recreate();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://3rosaty.com/"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.threerosaty/http/3rosaty.com/")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://3rosaty.com/"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.threerosaty/http/3rosaty.com/")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
     }
 
     public interface OnFilterClickListener {

@@ -12,6 +12,10 @@ import android.widget.TextView;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.threerosaty.R;
+import com.threerosaty.data.FilterByCategory;
+import com.threerosaty.data.FilterByCriteria;
+import com.threerosaty.data.FilterByPrice;
+import com.threerosaty.data.FilterBySubCategory;
 import com.threerosaty.data.responsedata.PortfolioResponse;
 import com.threerosaty.utils.CustomVolleyRequestQueue;
 
@@ -160,15 +164,32 @@ public class UserPortfolioListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void filterAdapter(int selectedPrice) {
+    public void filterAdapter(int selectedPrice, int categoryId, int subCategoryId) {
+        FilterByCriteria filterByPrice = new FilterByPrice();
+        FilterByCriteria filterByCategory = new FilterByCategory();
+        FilterByCriteria filterBySubCategory = new FilterBySubCategory();
         ArrayList<PortfolioResponse> filterData = new ArrayList<>();
-        for (PortfolioResponse portfolioResponse : this.mData) {
-            if (portfolioResponse.getMaxPrice() <= selectedPrice) {
-                filterData.add(portfolioResponse);
+        if (selectedPrice > 1000 && categoryId != 0) {
+            filterData = filterByPrice.meetCriteria(selectedPrice, mData);
+            filterData = filterByCategory.meetCriteria(categoryId, filterData);
+            if (subCategoryId != 0) {
+                filterData = filterBySubCategory.meetCriteria(subCategoryId, filterData);
             }
+            this.mData = filterData;
+            notifyDataSetChanged();
+        } else if (selectedPrice > 1000) {
+            filterData = filterByPrice.meetCriteria(selectedPrice, mData);
+            this.mData = filterData;
+            notifyDataSetChanged();
+        } else if (categoryId != 0) {
+            filterData = filterByCategory.meetCriteria(categoryId, mData);
+            if (subCategoryId != 0) {
+                filterData = filterBySubCategory.meetCriteria(subCategoryId, mData);
+            }
+            this.mData = filterData;
+            notifyDataSetChanged();
         }
-        this.mData = filterData;
-        notifyDataSetChanged();
+
     }
 
     public ArrayList<PortfolioResponse> getData() {

@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.threerosaty.R;
@@ -41,10 +42,11 @@ public class AddPortfolioDataActivity extends BaseActivity implements ServerSync
     private CategorySpinnerAdapter categorySpinnerAdapter;
     private SubcategorySpinnerAdapter subcategorySpinnerAdapter;
     private EditText edtFbLink, edtYouLink, edtMinPrice, edtMaxPrice, edtDetails;
-    private Button btnNext;
+    private Button btnNext, btnBack;
     private int categoryId = 0;
     private int subCategoryId = 0;
     private long portfolioId = 0;
+    private TextView txtSubCat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +61,11 @@ public class AddPortfolioDataActivity extends BaseActivity implements ServerSync
         edtMaxPrice = (EditText) findViewById(R.id.edt_max_price);
         edtDetails = (EditText) findViewById(R.id.edt_details);
         btnNext = (Button) findViewById(R.id.btn_next);
+        txtSubCat = (TextView) findViewById(R.id.txtSubCat);
+        btnBack = (Button) findViewById(R.id.btn_back);
 
         btnNext.setOnClickListener(this);
+        btnBack.setOnClickListener(this);
         progressDialog.show();
         mServerSyncManager.uploadGetDataToServer(ServerRequestToken.REQUEST_CATEGORY_TOKEN, mSessionManager.getCategoryListUrl());
         mServerSyncManager.setOnStringErrorReceived(this);
@@ -85,11 +90,13 @@ public class AddPortfolioDataActivity extends BaseActivity implements ServerSync
                             categoryResponseDTO.getSubCategories());
                     spnSubCategory.setAdapter(subcategorySpinnerAdapter);
                     spnSubCategory.setVisibility(View.VISIBLE);
+                    txtSubCat.setVisibility(View.VISIBLE);
                     if (subCategoryId != 0) {
                         spnSubCategory.setSelection(subcategorySpinnerAdapter.getPosition(subCategoryId));
                     }
                 } else {
                     spnSubCategory.setVisibility(View.GONE);
+                    txtSubCat.setVisibility(View.GONE);
                     subCategoryId = 0;
                 }
             }
@@ -210,6 +217,9 @@ public class AddPortfolioDataActivity extends BaseActivity implements ServerSync
                     createNetworkAlertDialog(getResources().getString(R.string.str_net_err),
                             getResources().getString(R.string.str_err_net_msg));
                 }
+                break;
+            case R.id.btn_back:
+                finish();
                 break;
         }
     }

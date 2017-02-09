@@ -1,10 +1,12 @@
 package com.threerosaty.fragments;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +41,7 @@ import java.util.ArrayList;
  */
 public class PortfolioListFragment extends BaseFragment implements ServerSyncManager.OnSuccessResultReceived,
         ServerSyncManager.OnErrorResultReceived, UserPortfolioListAdapter.OnItemClick, MainActivity.OnFilterClickListener {
+    private static final String TAG = PortfolioListFragment.class.getSimpleName();
     private ListView listPortfolio;
     private ArrayList<PortfolioResponse> portfolioResponses = new ArrayList<>();
     private UserPortfolioListAdapter adapter;
@@ -178,13 +181,21 @@ public class PortfolioListFragment extends BaseFragment implements ServerSyncMan
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == MainActivity.FILTER_RESULT) {
-            adapter.setData(portfolioResponses);
-            int selectedPrice = data.getIntExtra(FilterActivity.SELECTED_PRICE, 0);
-            int selectedSort = data.getIntExtra(FilterActivity.SELECTED_SORT, 0);
-            if (selectedPrice > 1000) {
-                adapter.filterAdapter(selectedPrice);
+            if (resultCode == Activity.RESULT_OK) {
+                if (adapter != null) {
+                    adapter.setData(portfolioResponses);
+                    int selectedPrice = data.getIntExtra(FilterActivity.SELECTED_PRICE, 0);
+                    int categoryId = data.getIntExtra(FilterActivity.SELECTED_CATEGORY, 0);
+                    int subcategoryId = data.getIntExtra(FilterActivity.SELECTED_SUBCATEGORY, 0);
+                    int selectedSort = data.getIntExtra(FilterActivity.SELECTED_SORT, 0);
+                    adapter.filterAdapter(selectedPrice, categoryId, subcategoryId);
+                    adapter.sortAdapter(selectedSort);
+                }
+
+            } else {
+                Log.d(TAG, "Filter not applied");
             }
-            adapter.sortAdapter(selectedSort);
+
 
         }
     }

@@ -203,4 +203,7 @@
     <string name="str_user_registration">User Registration</string>
     <string name="str_sub_registration">Subscriber Registration</string>
     <string name="str_terms_condition">Please select terms and conditions</string>
+    <string name="str_all_categories">All Categories</string>
+    <string name="str_all_subcategories">All Subcategories</string>
+
 </resources>
