@@ -7,7 +7,7 @@ android {
         applicationId "com.threerosaty"
         minSdkVersion 19
         targetSdkVersion 25
-        versionCode 8
+        versionCode 9
         versionName "1.0"
         multiDexEnabled true
     }
@@ -58,6 +58,5 @@ dependencies {
     //add multipart file to server
     compile 'org.apache.commons:commons-collections4:4.1'
     compile 'com.android.support:multidex:1.0.0'
-
     compile 'com.google.android.gms:play-services-appindexing:9.4.0'
 }
