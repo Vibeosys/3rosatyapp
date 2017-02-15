@@ -236,4 +236,10 @@ public class MainActivity extends BaseActivity
     public void setFilterClickListener(OnFilterClickListener listener) {
         this.onFilterClickListener = listener;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        progressDialog.dismiss();
+    }
 }

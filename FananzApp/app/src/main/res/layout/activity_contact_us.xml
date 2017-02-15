@@ -232,7 +232,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
-                android:background="@color/primaryText"
+                android:background="@android:color/black"
                 android:src="@drawable/developed_by" />
 
             <TextView

@@ -199,4 +199,10 @@ public class PortfolioListFragment extends BaseFragment implements ServerSyncMan
 
         }
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        progressDialog.dismiss();
+    }
 }

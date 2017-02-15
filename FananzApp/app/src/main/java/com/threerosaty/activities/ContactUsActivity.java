@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.threerosaty.R;
 import com.threerosaty.data.requestdata.BaseRequestDTO;
 import com.threerosaty.data.requestdata.ContactUsReqDTO;
+import com.threerosaty.utils.NetworkUtils;
 import com.threerosaty.utils.ServerRequestToken;
 import com.threerosaty.utils.ServerSyncManager;
 import com.threerosaty.utils.Validator;
@@ -110,15 +111,20 @@ public class ContactUsActivity extends BaseActivity implements ServerSyncManager
         if (check) {
             focusView.requestFocus();
         } else {
-            progressDialog.show();
-            ContactUsReqDTO contactUsReqDTO = new ContactUsReqDTO(strName, email, strMob, strMsg);
-            Gson gson = new Gson();
-            String serializedJsonString = gson.toJson(contactUsReqDTO);
-            BaseRequestDTO baseRequestDTO = new BaseRequestDTO();
-            baseRequestDTO.setData(serializedJsonString);
-            mServerSyncManager.uploadDataToServer(ServerRequestToken.REQUEST_CONTACT_US,
-                    mSessionManager.contactUsUrl(), baseRequestDTO);
-        }
+            if (!NetworkUtils.isActiveNetworkAvailable(getApplicationContext())) {
+                createNetworkAlertDialog(getResources().getString(R.string.str_net_err),
+                        getResources().getString(R.string.str_err_net_msg));
+            } else {
+                progressDialog.show();
+                ContactUsReqDTO contactUsReqDTO = new ContactUsReqDTO(strName, email, strMob, strMsg);
+                Gson gson = new Gson();
+                String serializedJsonString = gson.toJson(contactUsReqDTO);
+                BaseRequestDTO baseRequestDTO = new BaseRequestDTO();
+                baseRequestDTO.setData(serializedJsonString);
+                mServerSyncManager.uploadDataToServer(ServerRequestToken.REQUEST_CONTACT_US,
+                        mSessionManager.contactUsUrl(), baseRequestDTO);
+            }
 
+        }
     }
 }
